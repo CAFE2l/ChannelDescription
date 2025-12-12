@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAFÉ - Description</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Animate on Scroll CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background-color: #0a0a0f;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        
+        /* Estilos de Glassmorphism */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(94, 234, 212, 0.3);
+            box-shadow: 0 8px 32px rgba(94, 234, 212, 0.1);
+        }
+        
+        /* Animações personalizadas */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(94, 234, 212, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(94, 234, 212, 0.8);
+            }
+        }
+        
+        @keyframes gradient-border {
+            0% {
+                border-color: rgba(94, 234, 212, 0.7);
+            }
+            25% {
+                border-color: rgba(129, 140, 248, 0.7);
+            }
+            50% {
+                border-color: rgba(167, 139, 250, 0.7);
+            }
+            75% {
+                border-color: rgba(94, 234, 212, 0.7);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .float-animation {
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        .gradient-border {
+            animation: gradient-border 4s ease-in-out infinite;
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.8);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #0ea5e9, #8b5cf6);
+            border-radius: 5px;
+        }
+        
+        /* Efeitos de gradiente */
+        .gradient-text {
+            background: linear-gradient(45deg, #0ea5e9, #8b5cf6, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(139, 92, 246, 0.1));
+        }
+        
+        /* Animações de entrada */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Efeito de partículas (simulado com CSS) */
+        .particles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(94, 234, 212, 0.2);
+            border-radius: 50%;
+        }
+        
+        /* Suavização de scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-200">
+    <!-- Partículas de fundo -->
+    <div class="particles-container" id="particles"></div>
+    
+    <!-- Hero Section -->
+    <section class="min-h-screen relative flex flex-col justify-center items-center px-4 overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-black via-gray-900 to-blue-900 opacity-70"></div>
+        
+        <div class="relative z-10 max-w-6xl w-full text-center">
+            <div class="mb-8 fade-in-up">
+                <div class="inline-block px-4 py-2 rounded-full gradient-bg border border-cyan-500/30 mb-6">
+                    <span class="text-sm font-medium">Documentando a jornada desde 2023</span>
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+                    <span class="block">Welcome to my journey</span>
+                    <span class="block gradient-text mt-2">to become a Full-Stack Engineer</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto">
+                    You won't find magic here <span class="text-cyan-400 font-semibold">just discipline</span>.
+                </p>
+            </div>
+            
+            <!-- Discord CTA -->
+            <div class="glass-card max-w-2xl mx-auto p-8 mb-12 border border-cyan-500/30 fade-in-up" style="animation-delay: 0.2s">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="text-left">
+                        <h3 class="text-2xl font-bold mb-2 flex items-center gap-2">
+                            <i class="fab fa-discord text-indigo-400"></i>
+                            JOIN OUR STUDY COMMUNITY DISCORD
+                        </h3>
+                        <p class="text-gray-300">
+                            I created a server so we can study together, stay focused, and help each other out.
+                        </p>
+                    </div>
+                    
+                    <a href="https://tinyurl.com/studyWithCAFE" target="_blank" 
+                       class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/30 flex items-center gap-3 pulse-glow">
+                        <i class="fab fa-discord"></i>
+                        Join Now
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Scroll indicator -->
+            <div class="mt-16 fade-in-up" style="animation-delay: 0.4s">
+                <div class="inline-block animate-bounce">
+                    <i class="fas fa-chevron-down text-cyan-400 text-2xl"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- What I listen to -->
+    <section class="py-20 px-4 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <i class="fas fa-headphones-alt text-cyan-400 mr-3"></i>
+                    What do you listen to when you're studying?
+                </h2>
+                <p class="text-xl text-gray-400">My personal focus soundtrack</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Lofi Card -->
+                <div class="glass-card p-6 rounded-2xl overflow-hidden border border-blue-500/30 hover:border-blue-500/70 transition-all duration-500 transform hover:-translate-y-2 animate-on-scroll">
+                    <div class="flex flex-col md:flex-row items-center gap-6">
+                        <div class="w-40 h-40 rounded-xl overflow-hidden gradient-border float-animation">
+                            <div class="w-full h-full bg-gradient-to-br from-blue-900 to-purple-900 flex items-center justify-center">
+                                <i class="fas fa-music text-5xl text-white"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="px-3 py-1 bg-blue-900/50 rounded-full text-sm font-medium">Lo-Fi</span>
+                                <span class="px-3 py-1 bg-purple-900/50 rounded-full text-sm font-medium">Chill</span>
+                            </div>
+                            
+                            <h3 class="text-2xl font-bold mb-2">StreamBeats Lo-Fi</h3>
+                            <p class="text-gray-300 mb-4">Perfect background music for coding marathons and deep work sessions. The consistent, non-intrusive beats help maintain flow state.</p>
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2 text-cyan-400">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span class="font-medium">Always Playing</span>
+                                </div>
+                                
+                                <div class="flex items-center gap-1">
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                    <i class="fas fa-star-half-alt text-yellow-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Nujabes Card -->
+                <div class="glass-card p-6 rounded-2xl overflow-hidden border border-purple-500/30 hover:border-purple-500/70 transition-all duration-500 transform hover:-translate-y-2 animate-on-scroll" style="animation-delay: 0.1s">
+                    <div class="flex flex-col md:flex-row items-center gap-6">
+                        <div class="w-40 h-40 rounded-xl overflow-hidden gradient-border float-animation" style="animation-delay: 0.5s">
+                            <div class="w-full h-full bg-gradient-to-br from-purple-900 to-pink-900 flex items-center justify-center">
+                                <i class="fas fa-compact-disc text-5xl text-white"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="px-3 py-1 bg-purple-900/50 rounded-full text-sm font-medium">Jazz-Hop</span>
+                                <span class="px-3 py-1 bg-pink-900/50 rounded-full text-sm font-medium">Inspirational</span>
+                            </div>
+                            
+                            <h3 class="text-2xl font-bold mb-2">Nujabes</h3>
+                            <p class="text-gray-300 mb-4">The legendary producer's timeless beats provide creative inspiration while keeping focus intact. Perfect for problem-solving sessions.</p>
+                            
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2 text-purple-400">
+                                    <i class="fas fa-heart"></i>
+                                    <span class="font-medium">All-Time Favorite</span>
+                                </div>
+                                
+                                <div class="flex items-center gap-1">
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Let's Connect Section -->
+    <section class="py-20 px-4 relative gradient-bg">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <i class="fas fa-handshake text-cyan-400 mr-3"></i>
+                    LET'S CONNECT!
+                </h2>
+                <p class="text-xl text-gray-300">Follow my journey and let's build together</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- GitHub -->
+                <a href="https://tinyurl.com/cafe2l12" target="_blank" 
+                   class="glass-card p-8 rounded-2xl border border-gray-700 hover:border-cyan-500/70 transition-all duration-300 transform hover:-translate-y-3 group animate-on-scroll">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-20 h-20 rounded-full bg-gradient-to-r from-gray-800 to-gray-900 flex items-center justify-center mb-6 group-hover:from-cyan-900 group-hover:to-gray-900 transition-all duration-300">
+                            <i class="fab fa-github text-4xl text-white"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-3">GitHub</h3>
+                        <p class="text-gray-300 mb-6">Explore my projects, contributions, and coding journey. From beginner to advanced, see the evolution.</p>
+                        
+                        <div class="px-6 py-3 bg-gray-800/50 rounded-lg group-hover:bg-cyan-900/30 transition-all duration-300">
+                            <span class="font-medium group-hover:text-cyan-300">@cafe2l12</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- LinkedIn -->
+                <a href="https://tinyurl.com/gabrielphelipe" target="_blank" 
+                   class="glass-card p-8 rounded-2xl border border-gray-700 hover:border-blue-500/70 transition-all duration-300 transform hover:-translate-y-3 group animate-on-scroll" style="animation-delay: 0.1s">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-20 h-20 rounded-full bg-gradient-to-r from-gray-800 to-gray-900 flex items-center justify-center mb-6 group-hover:from-blue-900 group-hover:to-gray-900 transition-all duration-300">
+                            <i class="fab fa-linkedin text-4xl text-white"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-3">LinkedIn</h3>
+                        <p class="text-gray-300 mb-6">Professional network and career updates. Let's connect and explore opportunities in tech.</p>
+                        
+                        <div class="px-6 py-3 bg-gray-800/50 rounded-lg group-hover:bg-blue-900/30 transition-all duration-300">
+                            <span class="font-medium group-hover:text-blue-300">Gabriel P. H.</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Roadmap -->
+                <a href="https://tinyurl.com/yx66yyn7" target="_blank" 
+                   class="glass-card p-8 rounded-2xl border border-gray-700 hover:border-purple-500/70 transition-all duration-300 transform hover:-translate-y-3 group animate-on-scroll" style="animation-delay: 0.2s">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="w-20 h-20 rounded-full bg-gradient-to-r from-gray-800 to-gray-900 flex items-center justify-center mb-6 group-hover:from-purple-900 group-hover:to-gray-900 transition-all duration-300">
+                            <i class="fas fa-map text-4xl text-white"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-3">Developer Roadmap</h3>
+                        <p class="text-gray-300 mb-6">Interactive roadmap for 2026. Track your progress and visualize your learning journey.</p>
+                        
+                        <div class="px-6 py-3 bg-gray-800/50 rounded-lg group-hover:bg-purple-900/30 transition-all duration-300">
+                            <span class="font-medium group-hover:text-purple-300">Live Demo</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Developer Roadmap Section -->
+    
+    
+    <!-- About Me Section -->
+    <section class="py-20 px-4 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <i class="fas fa-user-circle text-cyan-400 mr-3"></i>
+                    About Me
+                </h2>
+                <p class="text-xl text-gray-400">The person behind the code</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="animate-on-scroll">
+                    <div class="glass-card p-8 rounded-3xl border border-cyan-500/30 h-full">
+                        <div class="flex items-center gap-6 mb-8">
+                            <div class="w-24 h-24 rounded-2xl overflow-hidden gradient-border">
+                                <div class="w-full h-full bg-gradient-to-br from-cyan-900 to-blue-900 flex items-center justify-center">
+                                    <img src="https://github.com/CAFE2l.png"/>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-3xl font-bold mb-2">Gabriel</h3>
+                                <div class="flex items-center gap-2 text-cyan-400">
+                                    <img src="./imgs/icon.png"/>
+                                    <span>Brazil</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-lg text-gray-300 mb-10">
+                            A 16-year-old developer on a mission to master full-stack engineering. Documenting the entire journey — the wins, the challenges, and the lessons learned — to inspire others and build a community of focused learners.
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="glass-card p-6 rounded-xl border border-gray-700 hover:border-cyan-500/50 transition-all duration-300">
+                                <div class="text-center">
+                                    <div class="text-4xl font-bold gradient-text mb-2">16</div>
+                                    <div class="text-gray-400 font-medium">Age</div>
+                                </div>
+                            </div>
+                            
+                            <div class="glass-card p-6 rounded-xl border border-gray-700 hover:border-purple-500/50 transition-all duration-300">
+                                <div class="text-center">
+                                    <div class="text-4xl font-bold gradient-text mb-2">72kg</div>
+                                    <div class="text-gray-400 font-medium">Weight</div>
+                                </div>
+                            </div>
+                            
+                            <div class="glass-card p-6 rounded-xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300">
+                                <div class="text-center">
+                                    <div class="text-4xl font-bold gradient-text mb-2">1.75m</div>
+                                    <div class="text-gray-400 font-medium">Height</div>
+                                </div>
+                            </div>
+                            
+                            <div class="glass-card p-6 rounded-xl border border-gray-700 hover:border-green-500/50 transition-all duration-300">
+                                <div class="text-center">
+                                    <div class="text-4xl font-bold gradient-text mb-2">100%</div>
+                                    <div class="text-gray-400 font-medium">Dedication</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="animate-on-scroll" style="animation-delay: 0.1s">
+                    <!-- Stream Schedule -->
+                    <div class="glass-card p-8 rounded-3xl border border-purple-500/30 mb-8">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-purple-900 to-pink-900 flex items-center justify-center">
+                                <i class="fas fa-calendar-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold">Stream Schedule</h3>
+                                <p class="text-gray-400">Live coding & study sessions</p>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-300 mb-6">
+                            Join me for live coding sessions, project building, and study streams. Let's learn together in real-time!
+                        </p>
+                        
+                        <a href="https://tinyurl.com/streamschedasule" target="_blank" 
+                           class="inline-flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-purple-600 to-pink-700 hover:from-purple-700 hover:to-pink-800 rounded-xl font-bold transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-external-link-alt"></i>
+                            View Full Schedule
+                        </a>
+                    </div>
+                    
+                    <!-- Philosophy -->
+                    <div class="glass-card p-8 rounded-3xl border border-cyan-500/30">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-cyan-900 to-blue-900 flex items-center justify-center">
+                                <i class="fas fa-brain text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold">My Philosophy</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-full bg-cyan-900/50 flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-dumbbell text-cyan-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-2">Discipline Over Motivation</h4>
+                                    <p class="text-gray-300">Motivation is fleeting, but discipline is a skill you build every day. Show up even when you don't feel like it.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-full bg-purple-900/50 flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-users text-purple-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-2">Community Power</h4>
+                                    <p class="text-gray-300">We learn faster together. Sharing knowledge and holding each other accountable creates exponential growth.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-full bg-blue-900/50 flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-chart-line text-blue-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-2">Progress, Not Perfection</h4>
+                                    <p class="text-gray-300">Focus on consistent 1% improvements. Small wins compound into massive results over time.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-12 px-4 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="text-center md:text-left">
+                    <h3 class="text-2xl font-bold mb-4">Discipline beats motivation. <span class="gradient-text">Stay Hard</span></h3>
+                    <p class="text-gray-400">Documenting the journey to Full-Stack Engineering • 2025-20??</p>
+                </div>
+                
+                <div class="flex gap-6">
+                    <a href="https://tinyurl.com/studyWithCAFE" target="_blank" 
+                       class="w-12 h-12 rounded-full glass-card border border-gray-700 hover:border-cyan-500 hover:bg-cyan-900/20 flex items-center justify-center transition-all duration-300 transform hover:scale-110">
+                        <i class="fab fa-discord text-xl"></i>
+                    </a>
+                    
+                    <a href="https://tinyurl.com/cafe2l12" target="_blank" 
+                       class="w-12 h-12 rounded-full glass-card border border-gray-700 hover:border-gray-500 hover:bg-gray-800/50 flex items-center justify-center transition-all duration-300 transform hover:scale-110">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    
+                    <a href="https://tinyurl.com/gabrielphelipe" target="_blank" 
+                       class="w-12 h-12 rounded-full glass-card border border-gray-700 hover:border-blue-500 hover:bg-blue-900/20 flex items-center justify-center transition-all duration-300 transform hover:scale-110">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-500">
+                <p>© 2025 CAFÉ</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+        
+        // Criar partículas
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = window.innerWidth < 768 ? 20 : 40;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Tamanho aleatório
+                const size = Math.random() * 4 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Posição aleatória
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Opacidade aleatória
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                
+                // Animação
+                const duration = Math.random() * 20 + 10;
+                particle.style.animation = `float ${duration}s ease-in-out infinite`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // Animações ao scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // Efeito de digitação no título (opcional)
+        function typeWriterEffect() {
+            const titleElement = document.querySelector('.gradient-text');
+            if (!titleElement) return;
+            
+            const text = titleElement.textContent;
+            titleElement.textContent = '';
+            
+            let i = 0;
+            function typeWriter() {
+                if (i < text.length) {
+                    titleElement.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            
+            // Iniciar após um breve delay
+            setTimeout(typeWriter, 1000);
+        }
+        
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            animateOnScroll();
+            
+            // Iniciar efeito de digitação apenas em desktop
+            if (window.innerWidth > 768) {
+                typeWriterEffect();
+            }
+            
+            // Adicionar event listener para scroll
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // Adicionar efeitos de hover dinâmicos
+            const glassCards = document.querySelectorAll('.glass-card');
+            glassCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transition = 'all 0.3s ease';
+                });
+            });
+            
+            // Adicionar animação de entrada para elementos
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            fadeElements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+        
+        // Atualizar partículas ao redimensionar a janela
+        window.addEventListener('resize', function() {
+            const container = document.getElementById('particles');
+            container.innerHTML = '';
+            createParticles();
+        });
+    </script>
+</body>
+</html>
